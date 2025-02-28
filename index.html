@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+
+    #yesButton {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noButton {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #4CAF50;
+      display: none; /* Hidden by default */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Do you love me?</h1>
+    <div class="buttons">
+      <button id="yesButton">Yes</button>
+      <button id="noButton">No</button>
+    </div>
+    <div id="message" class="message">I love you too 🥹</div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById('noButton');
+    const yesButton = document.getElementById('yesButton');
+    const message = document.getElementById('message');
+
+    noButton.addEventListener('click', () => {
+      const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const randomY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.position = 'absolute';
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+
+    yesButton.addEventListener('click', () => {
+      message.style.display = 'block'; // Show the message
+    });
+  </script>
+</body>
+</html>
